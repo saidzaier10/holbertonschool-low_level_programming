@@ -14,9 +14,9 @@ int main(void)
 
 	if (n > 0)
 		printf("%dis positive"\n)
-	if (n == 0)
+	else if (n == 0)
 		printf("%dis zero"\n)
-	if (n < 0)
+	else (n < 0)
 		printf("%dis negative"\n)
 
 	srand(time(0));
