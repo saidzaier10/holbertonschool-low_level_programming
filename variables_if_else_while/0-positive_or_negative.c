@@ -8,11 +8,11 @@ int main(void)
 	int n;
 
 	if (n > 0)
-		printf("is positive"\n)
+		printf("%dis positive"\n)
 	if (n == 0)
-		printf("is zero"\n)
+		printf("%dis zero"\n)
 	if (n < 0)
-		printf("is negative"\n)
+		printf("%dis negative"\n)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
