@@ -13,14 +13,14 @@ int main(void)
 
 	while (i <= 9)
 	{
-		putchar i
+		putchar (i + '0');
 
 		i++;
 	}
 
 	while (alph <= 'f')
 	{
-		putchar alph
+		putchar (alph);
 
 		alph++;
 	}
