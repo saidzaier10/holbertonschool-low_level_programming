@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
-  *Write a function that prints 10 times the alphabet, in lowercase
-  *
-  *return: Always 0.
-  */
+*void print_alphabet_x10(void) prints 10 times the alphabet
+*
+*return: Always 0.
+*/
 void print_alphabet_x10(void)
 {
-	char c/*je déclare mes deux variables pour mes boucles*/
+	char c
 	int i
 
 	i = 0;
-	while (i < 10)/*j'initie ma première boucle*/
+	while (i < 10)
 	{
 		c = 'a';
-		while (c <= 'z')/*j'initie ma deuxième boucle dans la première*/
+		while (c <= 'z')
 		{
-			_putchar(c);/*j'affiche mon caractère*/
-			c++;/*je l'incrémente*/
+			_putchar(c);
+			c++;
 		}
 		_putchar('\n');
 		i++;
