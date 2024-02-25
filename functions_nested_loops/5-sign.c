@@ -5,7 +5,7 @@
 * @n: The number to check.
 *
 * Return: 1 if n is positive, 0 if n is zero, -1 otherwise.
-*         Also prints the sign (+, 0, -) to stdout.
+* Also prints the sign (+, 0, -) to stdout.
 */
 int print_sign(int n)
 {
