@@ -1,43 +1,23 @@
 #include "main.h"
 
 /**
-* times_table - Prints the multiplication table up to 9x9.
-* Return: Nothing.
-*/
-void times_table(void)
+ * jack_bauer - prints every minute of the day
+ */
+void jack_bauer(void)
 {
+	int hour;
+	int minute;
 
-	int num1 = 0, num2 = 0;
-
-	while (num1 <= 9)
+	for (hour = 0; hour <= 23; hour++)
 	{
-		while (num2 <= 9)
+		for (minute = 0; minute <= 59; minute++)
 		{
-			int product = num1 * num2;
-			if (num2 == 0)
-			{
-				_putchar('0');
-			}
-			else if (product <= 9) 
-			{
-				_putchar(' ');
-				_putchar('0' + product);
-			}
-			else
-			{
-				_putchar('0' + (product / 10));
-				_putchar('0' + (product % 10));
-			}
-			if (num2 < 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			num2++;
+			_putchar(hour / 10 + '0');
+			_putchar(hour % 10 + '0');
+			_putchar(':');
+			_putchar(minute / 10 + '0');
+			_putchar(minute % 10 + '0');
+			_putchar('\n');
 		}
-		_putchar('\n');
-		num2 (0);
-		num1++;
 	}
 }
-
