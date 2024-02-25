@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * times_table - Prints the multiplication table up to 9x9.
- * Return: Nothing.
- */
+* times_table - Prints the multiplication table up to 9x9.
+* Return: Nothing.
+*/
 void times_table(void)
 {
-int num1 = 0, num2 = 0;
+
+	int num1 = 0, num2 = 0;
 
 	while (num1 <= 9)
 	{
@@ -35,7 +36,7 @@ int num1 = 0, num2 = 0;
 			num2++;
 		}
 		_putchar('\n');
-		num2 = 0;
+		num2 (0);
 		num1++;
 	}
 }
