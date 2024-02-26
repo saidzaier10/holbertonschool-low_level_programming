@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 * print_most_number - prints numbers from 0 to 9, excluding 2and 4
-*
+* void print_most_numbers(void) - function that prints the numbers
 * return (0)
 *
 */
