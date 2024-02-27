@@ -15,8 +15,8 @@ void more_numbers(void)
 			_putchar(j + '0');
 			j++;
 		}
-	_putchar ('\n);
-	j = '0';
+	_putchar ('\n');
+	j = 0;
 	i++;
 	}
 }
