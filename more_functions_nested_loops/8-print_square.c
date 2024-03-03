@@ -1,30 +1,30 @@
 #include "main.h"
 
 /**
-* rev_string - Reverse a string.
-* @s: The string to reverse.
+* print_square - Prints a square of size using #.
+* @size: The size of the square.
+*
+* Return: Void (no return value).
 */
-void rev_string(char *s)
+void print_square(int size)
 {
-	int i, j;
+	int i = 0;
 
-	char temp;
-
-	i = 0;
-	while (s[i] != '\0')
+	if (size <= 0)
+		_putchar('\n');
+	else
 	{
-		i++;
-	}
+		while (i < size)
+		{
+			int j = 0;
 
-	j = 0;
-	i--;
-
-	while (j < i)
-	{
-		temp = s[j];
-		s[j] = s[i];
-		s[i] = temp;
-		j++;
-		i--;
+			while (j < size)
+			{
+				_putchar('#');
+				j++;
+			}
+			_putchar('\n');
+			i++;
+		}
 	}
 }
