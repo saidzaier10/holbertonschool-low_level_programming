@@ -1,7 +1,5 @@
-/* 2-strncpy.c */
-
 #include "main.h"
-
+#include <stdio.h>
 /**
 * _strncpy - Copies at most n bytes from source to destination
 * @dest: Destination string
