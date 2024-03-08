@@ -1,32 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
-* main - Multiplies two command-line argument numbers.
-* @argc: Argument count, including program name.
-* @argv: Argument vector, expects two numbers for multiplication.
-*
-* Description: If exactly two arguments are provided (excluding the program
-* name), this program calculates and prints their product. Otherwise, it
-* outputs "Error" and returns 1. The arguments are converted from strings
-* to integers using atoi.
-*
-* Return: 0 on success, 1 if incorrect number of arguments.
-*/
+ * main - Prints all command-line arguments.
+ * @argc: The number of command-line arguments, including the program name.
+ * @argv: An array of character pointers listing all the arguments.
+ *        Each argument is printed to the standard output.
+ *
+ * This program iterates through all command-line arguments passed to it,
+ * including the name of the program itself, and prints each one on a
+ * new line to the standard output. It demonstrates the usage of
+ * argc for determining the number of arguments and argv for accessing
+ * the actual argument values.
+ *
+ * Return: Always 0 (Success).
+ */
 int main(int argc, char *argv[])
 {
-	int num1, num2;
+int i;
 
-	if (argc <= 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-
-	printf("%d\n", num1 * num2);
-
-	return (0);
+for (i = 0; i < argc; i++)
+	printf("%s\n", argv[i]);
+return (0);
 }
