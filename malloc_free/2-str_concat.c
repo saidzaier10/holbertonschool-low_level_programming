@@ -13,9 +13,7 @@ char *str_concat(char *s1, char *s2)
 {
 	char *result;
 
-	unsigned int len1 = 0;
-
-	unsigned int len2 = 0;
+	unsigned int len1 = 0, len2 = 0, i = 0, j = 0;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -31,14 +29,12 @@ char *str_concat(char *s1, char *s2)
 
 	if (result != NULL)
 	{
-		i = 0;
-        while (i < len1)
+		while (i < len1)
 		{
 			result[i] = s1[i];
 			i++;
 		}
 
-        j = 0;
 		while (j < len2)
 		{
 			result[i + j] = s2[j];
