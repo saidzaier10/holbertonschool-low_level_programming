@@ -18,7 +18,7 @@ char *create_array(unsigned int size, char c)
 	{
 	array = malloc(size * sizeof(char));
 
-	if (tableau != NULL)
+	if (array != NULL)
 	{
 		while (i < size)
 		{
