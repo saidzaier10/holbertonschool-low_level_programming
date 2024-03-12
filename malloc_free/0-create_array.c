@@ -1,39 +1,34 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
-* create_array - crée un tableau de caractères et l'initialise
-* @size: la taille de la mémoire à allouer
-* @c: le caractère pour initialiser le tableau
+* create_array - function that creates an array of chars
+* @size: size of the array
+* @c: char to initialize
 *
-* Return : NULL si size = 0, ou NULL si l'allocation échoue
-*           un pointeur vers le tableau de caractères sinon
+* Return: Pointer of array or NULL if size = 0
 */
+
 char *create_array(unsigned int size, char c)
 {
-	char *arr;
+	char *array;
+    unsigned int i;
 
-	unsigned int i;
-
-	if (size == 0)
+	if (size > 0)
 	{
-		return (NULL);
-	}
+	array = malloc(size * sizeof(char));
 
-	arr = malloc(size * sizeof(char));
-
-	if (arr == NULL)
-
-		return (NULL);
-	}
-
-	i = 0;
-
-	while (i < size)
+	if (tableau != NULL)
 	{
-		arr[i] = c;
-		i++;
+		while (i < size)
+		{
+		array[i] = c;
+        i++;
+        }
+		return (array);
+	}
 	}
 
-	return (arr);
+	return (NULL);
+
 }
