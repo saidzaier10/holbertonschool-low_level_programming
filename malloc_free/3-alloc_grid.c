@@ -1,55 +1,64 @@
-#include "main.h"
 #include <stdlib.h>
 
 /**
- * alloc_grid - function that returns a pointer to a 2 dimensional array of integers
- * @width: width of the grid
- * @height: height of the grid
+ * @brief alloc_grid - Allocates a 2D array of integers.
  *
- * Return: Pointer to the allocated 2D array or NULL on failure
+ * Allocates a 2D array of `int` with `height` rows and `width` columns.
+ * Each element in the array is initialized to 0.
+ *
+ * @param width The width of the 2D array.
+ * @param height The height of the 2D array.
+ *
+ * @return On success, a pointer to the allocated 2D array.
+ *         On failure, NULL is returned.
  */
 int **alloc_grid(int width, int height)
 {
-    int **grid;
-    int w, h;
-    
+    int **grid, i = 0, j = 0;
+
+    /* Check for invalid dimensions */
     if (width <= 0 || height <= 0)
-    
-    return NULL;
-    
-	grid = malloc(height * sizeof(int *));
-    
-    if (grid != NULL)
     {
-		h = 0;
-        while (h < height)
-		{
-            grid[h] = malloc(width * sizeof(int));
-
-			if (grid[h] != NULL)
-			{
-                w = 0;
-				while (w < width)
-                {
-                    grid[h][w] = 0;
-                    w++;
-                }
-            }
-            else
-            {
-                while (h >= 0)
-                {
-                    free(grid[h]);
-                    h--;
-				}
-                free(grid);
-                return NULL;
-            }
-            h++;
-        }
-
-        return grid;
+        return NULL;
     }
 
-    return NULL;
+    /* Allocate memory for the rows of pointers */
+    grid = malloc(height * sizeof(int *));
+    if (grid == NULL)
+    {
+        return NULL;  /* malloc failed */
+    }
+
+    /* Allocate memory for each row of integers */
+    while (i < height)
+    {
+        grid[i] = malloc(width * sizeof(int));
+        if (grid[i] == NULL)
+        {
+            /* Free previously allocated rows if malloc fails */
+            while (i > 0)
+            {
+                i--;
+                free(grid[i]);
+            }
+            free(grid);
+            return NULL;  /* malloc failed */
+        }
+        i++;
+    }
+
+    /* Initialize all elements to 0 */
+    i = 0;
+    while (i < height)
+    {
+        j = 0;
+        while (j < width)
+        {
+            grid[i][j] = 0;
+            j++;
+        }
+        i++;
+    }
+
+    return grid;
 }
