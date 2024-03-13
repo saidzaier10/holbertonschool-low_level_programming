@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * @brief alloc_grid - Allocates a 2D array of integers.
@@ -16,38 +17,33 @@ int **alloc_grid(int width, int height)
 {
     int **grid, i = 0, j = 0;
 
-    /* Check for invalid dimensions */
     if (width <= 0 || height <= 0)
     {
         return NULL;
     }
 
-    /* Allocate memory for the rows of pointers */
     grid = malloc(height * sizeof(int *));
     if (grid == NULL)
     {
-        return NULL;  /* malloc failed */
+        return NULL;
     }
 
-    /* Allocate memory for each row of integers */
     while (i < height)
     {
         grid[i] = malloc(width * sizeof(int));
         if (grid[i] == NULL)
         {
-            /* Free previously allocated rows if malloc fails */
             while (i > 0)
             {
                 i--;
                 free(grid[i]);
             }
             free(grid);
-            return NULL;  /* malloc failed */
+            return NULL;
         }
         i++;
     }
 
-    /* Initialize all elements to 0 */
     i = 0;
     while (i < height)
     {
