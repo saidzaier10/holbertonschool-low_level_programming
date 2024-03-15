@@ -7,10 +7,10 @@
  * Allocates a 2D array of `int` with `height` rows and `width` columns.
  * Each element in the array is initialized to 0.
  *
- * @param width The width of the 2D array.
- * @param height The height of the 2D array.
+ * @width The width of the 2D array.
+ * @height The height of the 2D array.
  *
- * @return On success, a pointer to the allocated 2D array.
+ * return: On success, a pointer to the allocated 2D array.
  *         On failure, NULL is returned.
  */
 int **alloc_grid(int width, int height)
