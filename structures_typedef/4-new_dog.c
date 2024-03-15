@@ -1,47 +1,65 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "dog.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
-* new_dog - Creates a new dog
-* @name: Name of the dog
-* @age: Age of the dog
-* @owner: Owner of the dog
-*
-* Return: Pointer to the newly created dog, or NULL on failure
-*/
+ * new_dog - Creates a new dog
+ * @name: Name of the dog
+ * @age: Age of the dog
+ * @owner: Owner of the dog
+ *
+ * Return: Pointer to the newly created dog, or NULL if the function fails
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
-	char *name_copy, *owner_copy;
+    dog_t *new_dog;
+    int name_length = 0, owner_length = 0;
+    int index;
 
-	/* Allocate memory for the dog structure */
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
+    /* Calculate the length of name and owner strings */
+    while (name[name_length] != '\0')
+        name_length++;
+    while (owner[owner_length] != '\0')
+        owner_length++;
 
-	/* Allocate memory for the name and copy the string */
-	name_copy = strdup(name);
-	if (name_copy == NULL)
-	{
-		free(new_dog);
-		return (NULL);
-	}
+    /* Allocate memory for the dog structure */
+    new_dog = malloc(sizeof(*new_dog));
+    if (new_dog == NULL)
+        return (NULL);
 
-	/* Allocate memory for the owner and copy the string */
-	owner_copy = strdup(owner);
-	if (owner_copy == NULL)
-	{
-		free(name_copy);
-		free(new_dog);
-		return (NULL);
-	}
+    /* Allocate memory for the name and owner strings */
+    new_dog->name = malloc(name_length + 1);
+    new_dog->owner = malloc(owner_length + 1);
 
-	/* Assign values to the dog structure */
-	new_dog->name = name_copy;
-	new_dog->age = age;
-	new_dog->owner = owner_copy;
+    /* Check if memory allocation succeeded */
+    if (new_dog->name == NULL || new_dog->owner == NULL)
+    {
+        /* Free previously allocated memory */
+        free(new_dog->name);
+        free(new_dog->owner);
+        free(new_dog);
+        return (NULL);
+    }
 
-	return (new_dog);
+    /* Copy name string */
+    index = 0;
+    while (name[index] != '\0')
+    {
+        new_dog->name[index] = name[index];
+        index++;
+    }
+    new_dog->name[index] = '\0';
+
+    /* Copy owner string */
+    index = 0;
+    while (owner[index] != '\0')
+    {
+        new_dog->owner[index] = owner[index];
+        index++;
+    }
+    new_dog->owner[index] = '\0';
+
+    new_dog->age = age;
+
+    return (new_dog);
 }
